@@ -4,7 +4,8 @@ import 'package:pdm/login.dart';
 import 'package:pdm/perfilCrianca.dart';
 import 'package:pdm/perfilResponsavel.dart';
 import 'package:pdm/qrcode.dart';
-
+import 'package:pdm/home.dart';
+import 'package:pdm/listarCrianca.dart';
 import 'cadastroResponsavel.dart';
 
 void main() {
@@ -25,7 +26,9 @@ class MyApp extends StatelessWidget {
         '/perfilCrianca': (BuildContext context) => new PerfilCriancaPage(),
         '/perfilResponsavel': (BuildContext context) => new PerfilResponsavelPage(),
         '/qrcode': (BuildContext context) => new QrCode(),
-        '/login': (BuildContext context) => new Login()
+        '/login': (BuildContext context) => new Login(),
+        '/home': (BuildContext context) => new Home(),
+        '/listarCrianca': (BuildContext context) => new ListarCrianca(),
       },
     );
   }

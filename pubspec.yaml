@@ -48,6 +48,11 @@ flutter:
   assets:
   - assets/images/location.png
   - assets/images/qrcode.png
+  - assets/images/qr-code-menu.png
+  - assets/images/codigo.png
+  - assets/images/crianca.png
+  - assets/images/user.png
+  - assets/images/close.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

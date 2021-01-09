@@ -51,7 +51,7 @@ class _LoginState extends State<Login> {
               ),
               RaisedButton(
                 onPressed: () {
-                  Navigator.pushReplacementNamed(context, '/perfilCrianca');
+                  Navigator.pushReplacementNamed(context, '/home');
                 },
                 child: Text('Entrar'),
                 color: Colors.black,
