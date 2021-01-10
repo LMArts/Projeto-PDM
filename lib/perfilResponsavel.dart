@@ -244,11 +244,11 @@ class PerfilResponsavelPage extends StatelessWidget {
                 height: 40,
                 child: RaisedButton(
                   onPressed: () => {
-                    Navigator.pushReplacementNamed(context, '/login')
+                    Navigator.pushReplacementNamed(context, '/home')
                   },
                   shape: new RoundedRectangleBorder(borderRadius: new BorderRadius.circular(10)),
                   child: Text(
-                    "Finalizar cadastro",
+                    "Atualizar cadastro",
                     style: TextStyle(color: Colors.white, fontSize: 17),
                   ),
                   color:Colors.black,
@@ -262,7 +262,7 @@ class PerfilResponsavelPage extends StatelessWidget {
                 height: 40,
                 child: RaisedButton(
                   onPressed: () => {
-                    Navigator.pushReplacementNamed(context, '/login')
+                    Navigator.pushReplacementNamed(context, '/home')
                   },
                   shape: new RoundedRectangleBorder(borderRadius: new BorderRadius.circular(10)),
                   child: Text(

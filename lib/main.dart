@@ -1,11 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:pdm/cadastroCrianca.dart';
+import 'package:pdm/home.dart';
 import 'package:pdm/login.dart';
 import 'package:pdm/perfilCrianca.dart';
 import 'package:pdm/perfilResponsavel.dart';
 import 'package:pdm/qrcode.dart';
 
 import 'cadastroResponsavel.dart';
+import 'listarCrianca.dart';
 
 void main() {
   runApp(MyApp());
@@ -23,8 +25,10 @@ class MyApp extends StatelessWidget {
         '/cadCrianca': (BuildContext context) => new CadCriancaPage(),
         '/cadResponsavel': (BuildContext context) => new CadResponsavelPage(),
         '/perfilCrianca': (BuildContext context) => new PerfilCriancaPage(),
-        '/perfilResponsavel': (BuildContext context) => new PerfilResponsavelPage(),
+        '/perfilResponsavel': (BuildContext context) =>new PerfilResponsavelPage(),
         '/qrcode': (BuildContext context) => new QrCode(),
+        '/home': (BuildContext context) => new Home(),
+        '/listarCrianca': (BuildContext context) => new ListarCrianca(),
         '/login': (BuildContext context) => new Login()
       },
     );

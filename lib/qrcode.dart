@@ -45,7 +45,7 @@ class _QrCodeState extends State<QrCode> {
               ),
               RaisedButton(
                 onPressed: () {
-                  Navigator.pushReplacementNamed(context, '/perfilResponsavel');
+                  //Navigator.pushReplacementNamed(context, '/perfilResponsavel');
                 },
                 child: Text('Compartilhar'),
                 color: Colors.black,
