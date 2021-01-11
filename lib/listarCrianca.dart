@@ -57,6 +57,23 @@ class ListarCrianca extends StatelessWidget {
                   shape: new RoundedRectangleBorder(
                       borderRadius: new BorderRadius.circular(10)),
                 ),
+                SizedBox(
+                  height: 10,
+                ),
+                RaisedButton(
+                  onPressed: () {
+                    Navigator.pushReplacementNamed(context, '/home');
+                  },
+                  child: Text('Voltar',
+                      style:
+                          TextStyle(fontWeight: FontWeight.bold, fontSize: 22)),
+                  color: Colors.black,
+                  padding:
+                      EdgeInsets.only(top: 15, left: 20, right: 10, bottom: 15),
+                  textColor: Colors.white,
+                  shape: new RoundedRectangleBorder(
+                      borderRadius: new BorderRadius.circular(10)),
+                ),
               ],
             )));
   }
