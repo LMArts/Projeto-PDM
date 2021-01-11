@@ -244,7 +244,7 @@ class PerfilResponsavelPage extends StatelessWidget {
                 height: 40,
                 child: RaisedButton(
                   onPressed: () => {
-                    Navigator.pushReplacementNamed(context, '/home')
+                    //Navigator.pushReplacementNamed(context, '/home')
                   },
                   shape: new RoundedRectangleBorder(borderRadius: new BorderRadius.circular(10)),
                   child: Text(
@@ -262,11 +262,11 @@ class PerfilResponsavelPage extends StatelessWidget {
                 height: 40,
                 child: RaisedButton(
                   onPressed: () => {
-                    Navigator.pushReplacementNamed(context, '/home')
+                    //Navigator.pushReplacementNamed(context, '/home')
                   },
                   shape: new RoundedRectangleBorder(borderRadius: new BorderRadius.circular(10)),
                   child: Text(
-                    "Cancelar",
+                    "Excluir conta",
                     style: TextStyle(color: Colors.white, fontSize: 17),
                   ),
                   color:Colors.black,
@@ -274,6 +274,20 @@ class PerfilResponsavelPage extends StatelessWidget {
               ),
               SizedBox(
                 height: 20,
+              ),
+              ButtonTheme(
+                height: 40,
+                child: RaisedButton(
+                  onPressed: () => {
+                    Navigator.pushReplacementNamed(context, '/home')
+                  },
+                  shape: new RoundedRectangleBorder(borderRadius: new BorderRadius.circular(10)),
+                  child: Text(
+                    "Voltar",
+                    style: TextStyle(color: Colors.white, fontSize: 17),
+                  ),
+                  color:Colors.black,
+                ),
               ),
           ],
           

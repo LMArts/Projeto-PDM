@@ -53,6 +53,19 @@ class _QrCodeState extends State<QrCode> {
                 shape: new RoundedRectangleBorder(
                     borderRadius: new BorderRadius.circular(5)),
               ),
+              SizedBox(
+                height: 10,
+              ),
+              RaisedButton(
+                onPressed: () {
+                  Navigator.pushReplacementNamed(context, '/home');
+                },
+                child: Text('Voltar'),
+                color: Colors.black,
+                textColor: Colors.white,
+                shape: new RoundedRectangleBorder(
+                    borderRadius: new BorderRadius.circular(5)),
+              ),
             ],
           ),
         ),

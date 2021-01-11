@@ -154,7 +154,7 @@ class PerfilCriancaPage extends StatelessWidget {
               shape: new RoundedRectangleBorder(
                   borderRadius: new BorderRadius.circular(10)),
               onPressed: () {
-                Navigator.pushReplacementNamed(context, '/listarCrianca');
+                //Navigator.pushReplacementNamed(context, '/listarCrianca');
               },
             ),
           ),
@@ -169,11 +169,25 @@ class PerfilCriancaPage extends StatelessWidget {
               shape: new RoundedRectangleBorder(
                   borderRadius: new BorderRadius.circular(10)),
               onPressed: () {
-                Navigator.pushReplacementNamed(context, '/home');
+                //Navigator.pushReplacementNamed(context, '/home');
               },
             ),
           ),
           Padding(padding: EdgeInsets.only(bottom: 10)),
+          SizedBox(
+            width: MediaQuery.of(context).size.width / 1.3,
+            height: 40,
+            child: RaisedButton(
+              child: new Text('Voltar'),
+              color: Colors.black,
+              textColor: Colors.white,
+              shape: new RoundedRectangleBorder(
+                  borderRadius: new BorderRadius.circular(10)),
+              onPressed: () {
+                Navigator.pushReplacementNamed(context, '/home');
+              },
+            ),
+          ),
         ]),
       ),
     ));

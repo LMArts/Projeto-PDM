@@ -3,20 +3,22 @@ import 'package:flutter/material.dart';
 class Home extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
-        appBar: AppBar(
-          title: Text("Home"),
-        ),
-        body: Column(
+    return Scaffold(
+        body: SingleChildScrollView(
+          child: SizedBox(
+            width: MediaQuery.of(context).size.width,
+            height: MediaQuery.of(context).size.height,
+            child: Padding(
+              padding: const EdgeInsets.all(10),
+              child: Column(
           children: <Widget>[
+            Container(height: 40,),
             Container(
               height: 40.0,
               child: Row(
                 children: <Widget>[
                   Container(
-                      width: 360,
+                      width: 340,
                       alignment: Alignment.topCenter,
                       child: Text("Bem Vindo(a)!",
                           style: TextStyle(
@@ -79,8 +81,8 @@ class Home extends StatelessWidget {
                   Container(
                     width: 50,
                     height: 50,
-                    margin: EdgeInsets.all(8.0),
-                    padding: EdgeInsets.all(8.0),
+                    margin: EdgeInsets.all(7.0),
+                    padding: EdgeInsets.all(5.0),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),
                       color: Colors.grey[300],
@@ -101,10 +103,10 @@ class Home extends StatelessWidget {
                         )),
                   ),
                   Container(
-                    width: 50,
-                    height: 50,
-                    margin: EdgeInsets.all(8.0),
-                    padding: EdgeInsets.all(9.0),
+                    width: 60,
+                    height: 60,
+                    margin: EdgeInsets.all(7.0),
+                    padding: EdgeInsets.all(5.0),
                     decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(10),
                       color: Colors.grey[300],
@@ -129,7 +131,9 @@ class Home extends StatelessWidget {
             ),
           ],
         ),
-      ),
-    );
+            ),
+          ),
+        ),
+      );
   }
 }
