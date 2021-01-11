@@ -94,12 +94,11 @@ class DemoResponsavelState extends State<DemoResponsavel>{
         title: Text(_titulo),
         actions: <Widget>[
           IconButton(
-            icon: IconButton(Icons.refresh),
+            icon: Icon(Icons.refresh),
           )
         ]
       ),
-    )
+    );
   }
 
 }
-

@@ -24,7 +24,7 @@ class MyApp extends StatelessWidget {
       initialRoute: '/login',
       routes: <String, WidgetBuilder>{
         '/cadCrianca': (BuildContext context) => new CadCriancaPage(),
-        '/cadResponsavel': (BuildContext context) => new CadResponsavelPage(),
+        '/cadResponsavel': (BuildContext context) => new Register(),
         '/perfilCrianca': (BuildContext context) => new PerfilCriancaPage(),
         '/perfilResponsavel': (BuildContext context) =>new PerfilResponsavelPage(),
         '/qrcode': (BuildContext context) => new QrCode(),

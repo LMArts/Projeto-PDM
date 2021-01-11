@@ -1,13 +1,51 @@
 import 'package:flutter/material.dart';
-
+import 'dart:convert';
+import 'package:http/http.dart' as http;
+import 'package:fluttertoast/fluttertoast.dart';
 class Login extends StatefulWidget {
   @override
   _LoginState createState() => _LoginState();
 }
 
 class _LoginState extends State<Login> {
-  String email = '';
-  String senha = '';
+    TextEditingController emailResp  = TextEditingController();
+    TextEditingController senhaResp  = TextEditingController();
+
+  Future login()async{
+      var url = 'http://localhost/loginPDM/login.php';
+      var response = await http.post(url, body:{       
+        "emailResp"  : emailResp.text,
+        "senhaResp"  : senhaResp.text,
+      });
+
+      var data = json.decode(response.body);
+      if(data == "Success"){
+        Fluttertoast.showToast(
+        msg: "Login realizado com sucesso!",
+        toastLength: Toast.LENGTH_SHORT,
+        gravity: ToastGravity.CENTER,
+        timeInSecForIosWeb: 1,
+        backgroundColor: Colors.green,
+        textColor: Colors.white,
+        fontSize: 16.0
+    );
+     Navigator.pushReplacementNamed(context, '/menu');
+      }else{
+        Fluttertoast.showToast(
+          msg: "Usuario ou senha incorreta!",
+          toastLength: Toast.LENGTH_SHORT,
+          gravity: ToastGravity.CENTER,
+          timeInSecForIosWeb: 1,
+          backgroundColor: Colors.red,
+          textColor: Colors.white,
+          fontSize: 16.0
+      );
+      }
+    }
+
+
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -28,8 +66,8 @@ class _LoginState extends State<Login> {
               ),
               Container(height: 20,),
               TextField(
+                controller: emailResp,
                 onChanged: (text) {
-                  email = text;
                 },
                 keyboardType: TextInputType.emailAddress,
                 decoration: InputDecoration(
@@ -39,8 +77,8 @@ class _LoginState extends State<Login> {
                 height: 10,
               ),
               TextField(
+                 controller: senhaResp,
                 onChanged: (text) {
-                  senha = text;
                 },
                 obscureText: true,
                 decoration: InputDecoration(
@@ -52,6 +90,7 @@ class _LoginState extends State<Login> {
               RaisedButton(
                 onPressed: () {
                   Navigator.pushReplacementNamed(context, '/home');
+                  login();
                 },
                 child: Text('Entrar'),
                 color: Colors.black,
