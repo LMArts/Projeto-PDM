@@ -61,14 +61,19 @@ class _LoginState extends State<Login> {
               ),
               Align(
                 alignment: Alignment.center,
-                child: Padding(
-                  padding: const EdgeInsets.only(top: 20),
-                  child: Text(
-                    'Ainda não tenho cadastro!',
-                    style: TextStyle(color: Colors.grey, fontSize: 17.0),
+                child: GestureDetector(
+                  onTap: (){
+                    Navigator.pushReplacementNamed(context, '/cadResponsavel');
+                  },
+                  child: Padding(
+                    padding: const EdgeInsets.only(top: 20),
+                    child: Text(
+                      'Ainda não tenho cadastro!',
+                      style: TextStyle(color: Colors.grey, fontSize: 17.0),
+                    ),
                   ),
                 ),
-              )
+              ),
             ],
           ),
         ),

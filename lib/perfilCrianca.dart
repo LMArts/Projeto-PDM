@@ -154,7 +154,7 @@ class PerfilCriancaPage extends StatelessWidget {
               shape: new RoundedRectangleBorder(
                   borderRadius: new BorderRadius.circular(10)),
               onPressed: () {
-                //Navigator.pushReplacementNamed(context, '/login');
+                Navigator.pushReplacementNamed(context, '/listarCrianca');
               },
             ),
           ),
@@ -169,7 +169,7 @@ class PerfilCriancaPage extends StatelessWidget {
               shape: new RoundedRectangleBorder(
                   borderRadius: new BorderRadius.circular(10)),
               onPressed: () {
-                //Navigator.pushReplacementNamed(context, '/login');
+                Navigator.pushReplacementNamed(context, '/home');
               },
             ),
           ),
