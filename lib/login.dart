@@ -1,13 +1,26 @@
+  
 import 'package:flutter/material.dart';
-
+import 'dart:developer';
+import 'package:http/http.dart' as http;
+import 'dart:convert';
+import 'package:fluttertoast/fluttertoast.dart';
 class Login extends StatefulWidget {
   @override
   _LoginState createState() => _LoginState();
 }
 
 class _LoginState extends State<Login> {
-  String email = '';
-  String senha = '';
+   TextEditingController  email, senha;
+
+
+  @override
+    void initState() {
+      super.initState();
+      email = new TextEditingController();
+      senha = new TextEditingController();
+    }
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -22,42 +35,42 @@ class _LoginState extends State<Login> {
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               Container(
-                width: 200,
-                height: 200,
+                width: 150,
+                height: 150,
                 child: Image.asset('assets/images/location.png'),
               ),
-              Container(height: 20,),
-              TextField(
-                onChanged: (text) {
-                  email = text;
-                },
-                keyboardType: TextInputType.emailAddress,
-                decoration: InputDecoration(
-                    labelText: "E-mail", border: OutlineInputBorder()),
-              ),
-              SizedBox(
+              Container(
                 height: 10,
               ),
               TextField(
-                onChanged: (text) {
-                  senha = text;
-                },
+                controller: email,
+                decoration: InputDecoration(
+                    labelText: "email", border: OutlineInputBorder()),
+              ),
+              SizedBox(
+                height: 5,
+              ),
+              TextField(
+                controller: senha,
                 obscureText: true,
                 decoration: InputDecoration(
-                    labelText: "Senha", border: OutlineInputBorder()),
+                    labelText: "senha", border: OutlineInputBorder()),
               ),
               SizedBox(
-                height: 10,
+                height: 5,
               ),
-              RaisedButton(
-                onPressed: () {
-                  Navigator.pushReplacementNamed(context, '/home');
+              MaterialButton(
+                onPressed: () => {
+                    loginResp(email.text, senha.text),
+                    
                 },
-                child: Text('Entrar'),
-                color: Colors.black,
-                textColor: Colors.white,
                 shape: new RoundedRectangleBorder(
                     borderRadius: new BorderRadius.circular(5)),
+                child: Text(
+                  'Entrar',
+                  style: TextStyle(color: Colors.white, fontSize: 17),
+                ),
+                color: Colors.black,
               ),
               Align(
                 alignment: Alignment.center,
@@ -79,5 +92,31 @@ class _LoginState extends State<Login> {
         ),
       ),
     ));
+  }
+   void loginResp(String email, String senha)async {
+    var url = "http://192.168.0.13/pdm/login.php";
+    var data ={
+      "email": email,
+      "senha": senha,
+    };
+    var res = http.post(url, body: data);
+   
+    print(res);
+    if(res == "Success"){
+
+      Navigator.pushReplacementNamed(context, '/home');
+    
+    }else{
+      Fluttertoast.showToast(
+        msg: "Login efetuado com sucesso!",
+        toastLength: Toast.LENGTH_SHORT,
+        gravity: ToastGravity.CENTER,
+        timeInSecForIosWeb: 1,
+        backgroundColor: Colors.red,
+        textColor: Colors.white,
+        fontSize: 16.0
+    );
+    Navigator.pushReplacementNamed(context, '/home');
+    }
   }
 }
