@@ -1,26 +1,26 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'Crianca.dart';
+import 'Responsavel.dart';
 
-List<Crianca> dataModel;
+List<Responsavel> dataModel;
 
-class ListaCrianca extends StatefulWidget {
+class ListaResponsavel extends StatefulWidget {
   @override
-  _ListaCriancaState createState() => _ListaCriancaState();
+  _ListaResponsavelState createState() => _ListaResponsavelState();
 }
 
-class _ListaCriancaState extends State<ListaCrianca> {
-  TextEditingController nome, dataNasc, sexo, descricao;
+class _ListaResponsavelState extends State<ListaResponsavel> {
+  TextEditingController nome, email, senha, telefone;
   String id;
 
   @override
   void initState() {
     super.initState();
     nome = new TextEditingController();
-    dataNasc = new TextEditingController();
-    sexo = new TextEditingController();
-    descricao = new TextEditingController();
+    email = new TextEditingController();
+    senha = new TextEditingController();
+    telefone = new TextEditingController();
   }
 
   @override
@@ -60,7 +60,7 @@ class _ListaCriancaState extends State<ListaCrianca> {
                       ),
                     ),
                     title: Text(
-                      dataModel[pos].dataNasc,
+                      dataModel[pos].email,
                       style: TextStyle(
                         color: Colors.black,
                         fontSize: 17,
@@ -68,7 +68,7 @@ class _ListaCriancaState extends State<ListaCrianca> {
                       ),
                     ),
                     trailing: Text(
-                      dataModel[pos].sexo,
+                      dataModel[pos].senha,
                       style: TextStyle(
                         color: Colors.black,
                         fontSize: 17,
@@ -78,9 +78,9 @@ class _ListaCriancaState extends State<ListaCrianca> {
                     onTap: () {
                       id = dataModel[pos].id;
                       nome.text = dataModel[pos].nome;
-                      dataNasc.text = dataModel[pos].dataNasc;
-                      sexo.text = dataModel[pos].sexo;
-                      descricao.text = dataModel[pos].descricao;
+                      email.text = dataModel[pos].email;
+                      senha.text = dataModel[pos].senha;
+                      telefone.text = dataModel[pos].telefone;
 
                       showDialog(
                           context: context,
@@ -107,13 +107,13 @@ class _ListaCriancaState extends State<ListaCrianca> {
               controller: nome,
             ),
             TextField(
-              controller: dataNasc,
+              controller: email,
             ),
             TextField(
-              controller: sexo,
+              controller: senha,
             ),
             TextField(
-              controller: descricao,
+              controller: telefone,
             ),
           ],
         ),
@@ -121,7 +121,7 @@ class _ListaCriancaState extends State<ListaCrianca> {
       actions: <Widget>[
         OutlineButton(
           onPressed: () {
-            updateData(id, nome.text, dataNasc.text, sexo.text, descricao.text);
+            updateData(id, nome.text, email.text, senha.text, telefone.text);
           },
           child: Text("Atualizar"),
         )
@@ -144,37 +144,37 @@ class _ListaCriancaState extends State<ListaCrianca> {
   }
 
   Future<List> getData() async {
-    var url = "http://10.0.0.106/pdm/selectCrianca.php";
+    var url = "http://10.0.0.106/pdm/selectResponsavel.php";
     http.Response res = await http.get(url);
     var data = jsonDecode(res.body);
     dataModel = new List();
     for (var word in data['result']) {
       String id = word['id'];
       String nome = word['nome'];
-      String dataNasc = word['dataNasc'];
-      String sexo = word['sexo'];
-      String descricao = word['descricao'];
-      dataModel.add(new Crianca(id, nome, dataNasc, sexo, descricao));
+      String email = word['email'];
+      String senha = word['senha'];
+      String telefone = word['telefone'];
+      dataModel.add(new Responsavel(id, nome, email, senha, telefone));
     }
     return dataModel;
   }
 
-  void updateData(String id, String nome, String dataNasc, String sexo,
-      String descricao) async {
-    var url = "http://10.0.0.106/pdm/updateCrianca.php";
+  void updateData(String id, String nome, String email, String senha,
+      String telefone) async {
+    var url = "http://10.0.0.106/pdm/updateResponsavel.php";
 
     var data = {
       "_id": id,
       "nome": nome,
-      "dataNasc": dataNasc,
-      "sexo": sexo,
-      "descricao": descricao
+      "email": email,
+      "senha": senha,
+      "telefone": telefone
     };
     var res = await http.post(url, body: data);
   }
   
   void deleteData(String id) async{
-    var url = "http://10.0.0.106/pdm/deleteCrianca.php";
+    var url = "http://10.0.0.106/pdm/deleteResponsavel.php";
     var data = {
       "_id": id
     };

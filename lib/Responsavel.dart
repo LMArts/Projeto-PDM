@@ -1,19 +1,40 @@
 class Responsavel {
+  String _id;
+  String _nome;
+  String _email;
+  String _senha;
+  String _telefone;
 
-  int id;
-  String nome;
-  String email;
-  String senha;
+  Responsavel(this._id, this._nome, this._email, this._senha, this._telefone);
 
-  Responsavel ({this.id, this.nome, this.email, this.senha});
+  String get telefone => _telefone;
 
-  factory Responsavel.fromJson(Map<String, dynamic> json){
-    return Responsavel(
-      id: json['id'] as int,
-      nome: json['nome'] as String,
-      email: json['email'] as String,
-      senha: json['senha'] as String,
-    );
+  set telefone(String value) {
+    _telefone = value;
+  }
+
+  String get senha => _senha;
+
+  set senha(String value) {
+    _senha = value;
+  }
+
+  String get email => _email;
+
+  set email(String value) {
+    _email = value;
+  }
+
+  String get nome => _nome;
+
+  set nome(String value) {
+    _nome = value;
+  }
+
+  String get id => _id;
+
+  set id(String value) {
+    _id = value;
   }
 
 }

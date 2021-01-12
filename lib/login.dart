@@ -1,3 +1,4 @@
+  
 import 'package:flutter/material.dart';
 import 'dart:developer';
 import 'package:http/http.dart' as http;
@@ -71,6 +72,22 @@ class _LoginState extends State<Login> {
                 ),
                 color: Colors.black,
               ),
+              Align(
+                alignment: Alignment.center,
+                child: GestureDetector(
+                  onTap: (){
+                    Navigator.pushReplacementNamed(context, '/cadResponsavel');
+                  },
+                  child: Padding(
+                    padding: const EdgeInsets.only(top: 20),
+                    child: Text(
+                      'Ainda não tenho cadastro!',
+                      style: TextStyle(color: Colors.grey, fontSize: 17.0),
+                    ),
+                  ),
+                ),
+                color: Colors.black,
+              ),
             ],
           ),
         ),
@@ -103,4 +120,8 @@ class _LoginState extends State<Login> {
     Navigator.pushReplacementNamed(context, '/home');
     }
   }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> 3c29736bf6137c21d547067e59d3ce85709da1a0

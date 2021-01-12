@@ -85,7 +85,7 @@ class _CadCriancaState extends State<CadCrianca> {
               MaterialButton(
                 onPressed: () => {
                     cadastrar(nome.text, dataNasc.text, sexo.text, descricao.text),
-                    Navigator.pushReplacementNamed(context, '/listarCrianca')
+                    Navigator.pushReplacementNamed(context, '/viewCrianca')
                 },
                 shape: new RoundedRectangleBorder(
                     borderRadius: new BorderRadius.circular(5)),
@@ -97,7 +97,7 @@ class _CadCriancaState extends State<CadCrianca> {
               ),
               MaterialButton(
                 onPressed: () =>
-                    {Navigator.pushReplacementNamed(context, '/listarCrianca')},
+                    {Navigator.pushReplacementNamed(context, '/viewCrianca')},
                 shape: new RoundedRectangleBorder(
                     borderRadius: new BorderRadius.circular(5)),
                 child: Text(
